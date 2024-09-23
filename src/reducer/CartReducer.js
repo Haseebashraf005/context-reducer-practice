@@ -4,13 +4,13 @@ export const cartReducer = (state, action) => {
     switch (type) {
 
         case "ADD_TO_CART":
-            return { ...state, cartList: payload.products };
+            return { ...state,  cartList: payload.products };
 
         case "REMOVE_FROM_CART":
             return { ...state, cartList: payload.products };
 
         case "UPDATE_TOTAL":
-            return { ...state,total:payload.totalAmount };
+            return { ...state, total: payload.totalAmount };
 
         default:
             throw new Error("no case found");

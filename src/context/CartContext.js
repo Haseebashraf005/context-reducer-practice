@@ -14,13 +14,15 @@ export function CartProvider({ children }) {
 
 
     const addToCart = (product) => {
-        const updateCartList = state.cartList.concat(product);
+        // const updateCartList = state.cartList.concat(product);
+        const cartlist = state.cartList;
+        const updateCartList = [...cartlist , product ]
         dispatch({
             type: "ADD_TO_CART",
             payload: {
                 products: updateCartList
             }
-        })
+        }) 
         updateTotal(updateCartList)
 
     }
@@ -51,8 +53,8 @@ export function CartProvider({ children }) {
     }
 
     const value = {
-        total: state.total,
         cartList: state.cartList,
+        total: state.total,
         addToCart,
         removeFromCart
     };
